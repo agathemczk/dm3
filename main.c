@@ -7,6 +7,7 @@ int value;
 int continuation() {
     printf("Voulez vous continuer le jeu? 1.oui 2.non\n");
     scanf(" %d",&value);
+    while (getchar() != '\n');
     if (value != 1 && value != 2){
         printf("Erreur\n");
     } else if (value == 2) {
@@ -23,21 +24,19 @@ int main() {
     int playerprice;
     while (value != 2){
         printf("Essayez de deviner le juste prix :\n");
-        scanf(" %d",&playerprice);
+        scanf(" %d", &playerprice);
 
-        if (playerprice <= 1 || playerprice >=1000){
+        if (playerprice < 1 || playerprice > 1000) {
             printf("Veuillez donner un nombre compris entre 1 et 1000.\n");
-        } else if (playerprice < randomprice ){
+        } else if (playerprice < randomprice) {
             printf("C'est plus !\n");
             continuation();
-        } else if (playerprice > randomprice ){
+        } else if (playerprice > randomprice) {
             printf("C'est moins !\n");
             continuation();
-        } else if (playerprice == randomprice){
+        } else if (playerprice == randomprice) {
             printf("Bravo, vous avez trouvé le juste prix !\n");
             return 0;
         }
-
     }
 }
-
