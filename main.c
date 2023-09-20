@@ -17,14 +17,16 @@ int continuation() {
 
 int main() {
     srand(time(NULL));
-    int randomprice = rand() %1000 + 1;
+    float randomprice = rand() %1000 + 1;
 
     printf("Bienvenu au juste prix ! Le but de ce jeu est de deviner un prix exact, compris entre 1 et 1000 euros. Si vous devinez le prix, vous le remportez ! A chaque tentative, vous proposez un nombre, et je vous indique s'il est supérieur ou inférieur au prix à deviner. Bonne chance !\n");
 
-    int playerprice;
+    float playerprice;
     while (value != 2){
         printf("Essayez de deviner le juste prix :\n");
-        scanf(" %d", &playerprice);
+        scanf(" %f", &playerprice);
+        getchar();
+
 
         if (playerprice < 1 || playerprice > 1000) {
             printf("Veuillez donner un nombre compris entre 1 et 1000.\n");
